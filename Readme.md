@@ -31,5 +31,20 @@ docker run \
 Will backup your data for the last 90 days. There will be at least 120 backups and the first backup of a week will be saved for a year.
 
 ### Compose
-
-<Enter a Docker Compose Example here>
+You can use the container also with Docker Compose
+__Example__:
+```
+storebackup:
+  image: raynigon/storebackup
+  container_name: StoreBackup
+  restart: always
+  volumes:
+    - '/home/:/data/source/'
+    - '/backup/:/data/destination/'
+  environment: 
+    - SERIES_NAME=Home
+    - BACKUP_DURATION_FIRST_OF_WEEK=120d
+    - BACKUP_DURATION_FIRST_OF_MONTH=120d
+    - BACKUP_DURATION_DUPLICATES=3d
+    - BACKUP_MIN_NUMBER=15
+```
