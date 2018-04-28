@@ -1,9 +1,7 @@
 #!/bin/bash
-cd storeBackup/bin/
-echo "[---] Started Backup"
-
+echo "INFO      $(date '+%Y.%m.%d %H:%M:%S')     # Started Backup"
 while [ true ]; do
-    storeBackup.pl \
+    bin/storeBackup.pl \
     --sourceDir /data/source/ \
     --backupDir /data/destination/ \
     --series $SERIES_NAME \
@@ -21,6 +19,12 @@ while [ true ]; do
     current_epoch=$(date +%s.%N)
     target_epoch=$(date -d 'tomorrow 00:00' +%s)
     sleep_seconds=$(echo "$target_epoch - $current_epoch" | bc)
-    echo "[---] Goodnight i will sleep until tomorrow ($sleep_seconds secs)"
+    echo "INFO      $(date '+%Y.%m.%d %H:%M:%S')     # Goodnight i will sleep until tomorrow ($sleep_seconds secs)"
     sleep $sleep_seconds
+    if $? -eq 0; then
+        echo "INFO      $(date '+%Y.%m.%d %H:%M:%S')     # Good Morning, i will start with the backup now!"
+    else
+        echo "ERROR     $(date '+%Y.%m.%d %H:%M:%S')     # Exit now, sleep was aborted"
+        exit 0
+    fi
 done

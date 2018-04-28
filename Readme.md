@@ -2,7 +2,7 @@
 
 ## Execute
 ```
-docker run -v '/home/:/data/source/' -v '/backup/:/data/destination/' raynigon/storebackup/
+docker run -v '/home/:/data/source/' -v '/backup/:/data/destination/' raynigon/storebackup
 ```
 Will create a Backup for the last 30 days of your '/home' folder to '/backup'.
 Take a look at the enviroment variables and check how to adjust them for your needs.
@@ -20,12 +20,16 @@ Take a look at the enviroment variables and check how to adjust them for your ne
 
 __Example__:
 ```
-docker run 
--v '/home/:/data/source/' 
--v '/backup/:/data/destination/' 
--e BACKUP_DURATION=90d
--e BACKUP_DURATION_FIRST_OF_WEEK=365d
--e BACKUP_MIN_NUMBER=120
-raynigon/storebackup/
+docker run \
+  -v '/home/:/data/source/' \
+  -v '/backup/:/data/destination/' \
+  -e BACKUP_DURATION=90d \
+  -e BACKUP_DURATION_FIRST_OF_WEEK=365d \
+  -e BACKUP_MIN_NUMBER=120 \
+  raynigon/storebackup
 ```
 Will backup your data for the last 90 days. There will be at least 120 backups and the first backup of a week will be saved for a year.
+
+### Compose
+
+<Enter a Docker Compose Example here>

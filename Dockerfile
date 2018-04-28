@@ -12,13 +12,10 @@ ENV BACKUP_MAX_NUMBER=999999
 # Install Tools
 RUN apk update && apk upgrade
 RUN apk add bash bc wget gzip perl coreutils
+RUN rm -rf /var/cache/apk/*
 
 # Change Workingdir
 WORKDIR /app/
-
-# Install Storebackup
-RUN wget http://download.savannah.gnu.org/releases/storebackup/storeBackup-${STOREBACKUP_VERSION}.tar.bz2 && \
-    tar -jxvf storeBackup-${STOREBACKUP_VERSION}.tar.bz2
 
 RUN mkdir -p /app/ && \
     mkdir -p /data/source/ && \
@@ -26,6 +23,11 @@ RUN mkdir -p /app/ && \
 
 COPY backup.sh /app/
 RUN chmod 775 backup.sh
+
+# Install Storebackup
+RUN wget http://download.savannah.gnu.org/releases/storebackup/storeBackup-${STOREBACKUP_VERSION}.tar.bz2 && \
+    tar -jxvf storeBackup-${STOREBACKUP_VERSION}.tar.bz2 && \
+    mv storeBackup/* . && rm -r storeBackup/ _ATTENTION_
 
 VOLUME [ "/data/source/", "/data/destination/" ]
 
