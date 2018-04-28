@@ -5,4 +5,4 @@ services:
 
 script:
 - docker build -t raynigon/storebackup .
-- .ci/docker_push.sh
+- bash ci/docker_push.sh
