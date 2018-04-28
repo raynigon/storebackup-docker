@@ -27,4 +27,6 @@ RUN mkdir -p /app/ && \
 COPY backup.sh /app/
 RUN chmod 775 backup.sh
 
+VOLUME [ "/data/source/", "/data/destination/" ]
+
 CMD ["/app/backup.sh"]
