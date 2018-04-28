@@ -31,7 +31,8 @@ docker run \
 Will backup your data for the last 90 days. There will be at least 120 backups and the first backup of a week will be saved for a year.
 
 ### Compose
-You can use the container also with Docker Compose
+You can use the container also with Docker Compose.
+
 __Example__:
 ```
 storebackup:
