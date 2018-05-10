@@ -1,3 +1,6 @@
+[![Open Issues](https://img.shields.io/github/issues/raynigon/storebackup-docker.svg)](https://github.com/raynigon/storebackup-docker/issues) [![Stars on GitHub](https://img.shields.io/github/stars/raynigon/storebackup-docker.svg)](https://github.com/raynigon/storebackup-docker/stargazers)
+[![Docker Stars](https://img.shields.io/docker/stars/raynigon/storebackup.svg)](https://hub.docker.com/r/raynigon/storebackup/) [![Docker Pulls](https://img.shields.io/docker/pulls/raynigon/storebackup.svg)](https://hub.docker.com/r/raynigon/storebackup/)
+
 # Storebackup Docker Container
 
 ## Execute
