@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ $IGNORE_COMPRESSION -eq true ]; then
+if [ $IGNORE_COMPRESSION == true ]; then
     ignore_compression_flag = "--checkCompr"
 else
     ignore_compression_flag = ""
