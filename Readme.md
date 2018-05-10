@@ -21,7 +21,7 @@ Take a look at http://www.nongnu.org/storebackup/en/ to get in touch with the un
 - __BACKUP_DURATION_DUPLICATES__: How long backups of the same day should be stored(default: 7d)
 - __BACKUP_MIN_NUMBER__: Minimal number of Backups which should be keept (default: 1)
 - __BACKUP_MAX_NUMBER__: Maximal number of Backups which should be keept (default: 999999)
-- __IGNORE_COMPRESSION__: Ignore is the compression exception settings should not be used (default: false). Per default all compression exception settings will be used as defined by storebackup
+
 
 
 __Example__:
