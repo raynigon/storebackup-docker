@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ $IGNORE_COMPRESSION -eq true ]; then
+    ignore_compression_flag = "--checkCompr"
+else
+    ignore_compression_flag = ""
+fi
 echo "INFO      $(date '+%Y.%m.%d %H:%M:%S')     # Started Backup"
 while [ true ]; do
     bin/storeBackup.pl \
@@ -14,6 +19,8 @@ while [ true ]; do
     --keepMaxNumber $BACKUP_MAX_NUMBER \
     --progressReport 1000,1m \
     --printDepth \
+    $ignore_compression_flag \
+    --print \
     --verbose
 
     current_epoch=$(date +%s.%N)
