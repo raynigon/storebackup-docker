@@ -4,10 +4,7 @@ if [ $IGNORE_COMPRESSION == true ]; then
 else
     ignore_compression_flag = ""
 fi
-echo "INFO      $(date '+%Y.%m.%d %H:%M:%S')     # Started Backup"
-while [ true ]; do
-    bin/storeBackup.pl \
-    --sourceDir /data/source/ \
+storebackup_options=--sourceDir /data/source/ \
     --backupDir /data/destination/ \
     --series $SERIES_NAME \
     --compress 'gzip -9' \
@@ -20,9 +17,12 @@ while [ true ]; do
     --progressReport 1000,1m \
     --printDepth \
     $ignore_compression_flag \
-    --print \
     --verbose
-
+echo "INFO      $(date '+%Y.%m.%d %H:%M:%S')     # Print Options"
+bin/storeBackup.pl --print $storebackup_options
+echo "INFO      $(date '+%Y.%m.%d %H:%M:%S')     # Started Backup"
+while [ true ]; do
+    bin/storeBackup.pl $storebackup_options
     current_epoch=$(date +%s.%N)
     target_epoch=$(date -d 'tomorrow 00:00' +%s)
     sleep_seconds=$(echo "$target_epoch - $current_epoch" | bc)
