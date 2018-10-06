@@ -39,6 +39,7 @@ log "INFO " "StoreBackup Options"
 bin/storeBackup.pl --print -f config.cfg
 log "INFO " "Started Backup"
 while [ true ]; do
+    bin/storeBackupDel.pl -f config.cfg
     bin/storeBackup.pl -f config.cfg
     if [ !$RUN_ENDLESS ]; then
         log "INFO" "Cronjob is disabled, terminating. Good Bye"
