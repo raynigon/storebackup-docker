@@ -17,6 +17,7 @@ autorepair=yes
 checkBlocksParallel=yes
 addExceptSuffix=
 noCopy=10
+deleteNotFinishedDirs=yes
 # Keep Configuration
 withUserGroupStat=yes
 writeExcludeLog=yes
