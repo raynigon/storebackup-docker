@@ -9,7 +9,6 @@ cat <<EOF > config.cfg
 sourceDir=/data/source/
 backupDir=/data/destination/
 # Series
-exceptDirs=
 includeDirs=
 exceptRule=
 includeRule=
@@ -33,7 +32,7 @@ echo "keepFirstOfMonth=$BACKUP_DURATION_FIRST_OF_MONTH" >> config.cfg
 echo "keepDuplicate=$BACKUP_DURATION_DUPLICATES" >> config.cfg
 echo "keepMinNumber=$BACKUP_MIN_NUMBER" >> config.cfg
 echo "keepMaxNumber=$BACKUP_MAX_NUMBER" >> config.cfg
-
+echo "exceptDirs=$EXCLUDE_DIRS" >> config.cfg
 
 log "INFO " "StoreBackup Options"
 bin/storeBackup.pl --print -f config.cfg
